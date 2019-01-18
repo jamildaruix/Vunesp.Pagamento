@@ -1,7 +1,7 @@
 # Vunesp.Pagamento
 Mock para o módulo de pagamentos.
 
-- Para rodar o projeto basta fazer o clone e dar F5. A página inicial é a do Swagger para testar as chamadas.
+- Para rodar o projeto basta clonar, abrir a solution e executar "Vunesp.Pagamento.Api". A página inicial é a do Swagger e da para testar as chamadas.
 
 ## Arquitetura
 Baseada na nova arquitetura do site com melhorias. Nova solution dividida em 5 projetos iniciais:
@@ -32,3 +32,5 @@ Web API em ASP.NET Core que irá ser efetivamente consumida, consultando o domí
 ### Diagrama 
 
 ![Diagrama](diagrama.png?raw=true)
+
+### Sugestões e comentários são bem-vindos!
