@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Swashbuckle.AspNetCore.Swagger;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,6 +12,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json.Serialization;
+using Vunesp.Pagamento.Domain;
+using Vunesp.Pagamento.Dto;
+using Vunesp.Pagamento.Model;
 
 namespace Vunesp.Pagamento.Api
 {
@@ -25,7 +31,18 @@ namespace Vunesp.Pagamento.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddJsonOptions(options =>
+                {
+                    options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                });
+
+            // Configura os serviços (injeção de dependência)
+            services.AddScoped<ICandidatoProjetoPagamentoDomain, CandidatoProjetoPagamentoDomain>();
+
+            // Adiciona o Swagger
+            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Info { Title = "Vunesp API Pagamento", Version = "v1" }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +57,19 @@ namespace Vunesp.Pagamento.Api
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            // Configurado o AutoMapper (mapeamento automático de Model para Dto e vice-versa)
+            Mapper.Initialize(c => 
+            {
+                c.CreateMap<CandidatoProjetoPagamentoDto, CandidatoProjetoPagamentoModel>(MemberList.Source);
+                c.CreateMap<CandidatoProjetoPagamentoModel, CandidatoProjetoPagamentoDto>(MemberList.Destination);                
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Vunesp API Pagamento");
+            }); 
 
             app.UseHttpsRedirection();
             app.UseMvc();

@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using Vunesp.Pagamento.Model;
 using Vunesp.Pagamento.Repositorio;
 
 namespace Vunesp.Pagamento.Domain
 {
-    public class CandidatoProjetoPagamentoDomain
+    public class CandidatoProjetoPagamentoDomain : ICandidatoProjetoPagamentoDomain
     {
-        public CandidatoProjetoPagamento Inserir(CandidatoProjetoPagamento model)
-        {        
+        public CandidatoProjetoPagamentoModel Inserir(CandidatoProjetoPagamentoModel model)
+        {
             // Valida...
             if (model == null)
                 throw new ArgumentNullException("Objeto nulo");
@@ -15,13 +16,24 @@ namespace Vunesp.Pagamento.Domain
             return new CandidatoProjetoPagamentoRep().Inserir(model);
         }
 
-        public CandidatoProjetoPagamento Buscar(int id)
-        {   
+        public List<CandidatoProjetoPagamentoModel> Listar()
+        {            
+            return new CandidatoProjetoPagamentoRep().Listar();
+        }
+
+        public CandidatoProjetoPagamentoModel Buscar(int id)
+        {
             // Valida...
             if (id <= 0)
                 throw new ArgumentException($"Parâmetro inválido {nameof(id)}");
 
-            return new CandidatoProjetoPagamentoRep().Buscar(id);
+            var model = new CandidatoProjetoPagamentoRep().Buscar(id);
+
+            // Se não existir retorna erro...
+            if (model == null)
+                throw new IndexOutOfRangeException($"{nameof(CandidatoProjetoPagamentoModel)} com [{nameof(id)} = {id}] não encontrado");
+
+            return model;
         }
     }
 }

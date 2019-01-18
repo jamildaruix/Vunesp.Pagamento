@@ -4,6 +4,8 @@ namespace Vunesp.Pagamento.Dto
 {
     public class CandidatoProjetoPagamentoDto
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
+
+        public string Nome { get; set; }
     }
 }
