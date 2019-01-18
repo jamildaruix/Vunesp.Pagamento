@@ -1,5 +1,7 @@
 # Vunesp.Pagamento
-Mock para o módulo de pagamentos
+Mock para o módulo de pagamentos.
+
+- Para rodar o projeto basta fazer o clone e dar F5. A página inicial é a do Swagger para testar as chamadas.
 
 ## Arquitetura
 Baseada na nova arquitetura do site com melhorias. Nova solution dividida em 5 projetos iniciais:
@@ -26,3 +28,7 @@ https://pt.stackoverflow.com/a/31365
 
 ### Vunesp.Pagamento.Api
 Web API em ASP.NET Core que irá ser efetivamente consumida, consultando o domínio e retornando os DTO's em JSON.
+
+### Diagrama 
+
+![Diagrama](diagrama.png?raw=true)
