@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Model", "01 - Model", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Domain", "03 - Domain", "{91DEB192-CCFA-4D0E-BC03-BDC5886F9AB5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Api", "04 - Api", "{79479965-B238-499D-B179-43D4A5830841}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - API", "05 - API", "{79479965-B238-499D-B179-43D4A5830841}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vunesp.Pagamento.Model", "Vunesp.Pagamento.Model\Vunesp.Pagamento.Model.csproj", "{9F255635-BF1E-4D1E-9613-E707E2E1A4AE}"
 EndProject
@@ -19,9 +19,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vunesp.Pagamento.Domain", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vunesp.Pagamento.Api", "Vunesp.Pagamento.Api\Vunesp.Pagamento.Api.csproj", "{CE64DB8B-99DF-4349-9ABA-7FD03CE5D172}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - Dto", "05 - Dto", "{E22676E8-D825-4B35-851A-DFBD34286C59}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Dto", "04 - Dto", "{E22676E8-D825-4B35-851A-DFBD34286C59}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vunesp.Pagamento.Dto", "Vunesp.Pagamento.Dto\Vunesp.Pagamento.Dto.csproj", "{A9F7A316-79C6-4549-B833-243D12F549F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - Arquitetura", "00 - Arquitetura", "{51344B54-5A89-4F90-854B-D96CEE6DAE8D}"
+	ProjectSection(SolutionItems) = preProject
+		CamadasArquitetura.dgml = CamadasArquitetura.dgml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
