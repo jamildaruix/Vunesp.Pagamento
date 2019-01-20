@@ -3,30 +3,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Data", "02 - Data", "{A81E5877-60AD-45AD-8960-D0405B8997DD}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Model", "01 - Model", "{59F3AEA2-3B60-4134-AD3C-B875AF57B7D4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Data", "01 - Data", "{A81E5877-60AD-45AD-8960-D0405B8997DD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Domain", "03 - Domain", "{91DEB192-CCFA-4D0E-BC03-BDC5886F9AB5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - API", "05 - API", "{79479965-B238-499D-B179-43D4A5830841}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - API", "01 - API", "{79479965-B238-499D-B179-43D4A5830841}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vunesp.Pagamento.Model", "Vunesp.Pagamento.Model\Vunesp.Pagamento.Model.csproj", "{9F255635-BF1E-4D1E-9613-E707E2E1A4AE}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vunesp.Pagamento.Repositorio", "Vunesp.Pagamento.Repositorio\Vunesp.Pagamento.Repositorio.csproj", "{57232A6C-A1B3-4C35-A005-197401562C7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vunesp.Pagamento.Data", "Vunesp.Pagamento.Repositorio\Vunesp.Pagamento.Data.csproj", "{57232A6C-A1B3-4C35-A005-197401562C7A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vunesp.Pagamento.Domain", "Vunesp.Pagamento.Domain\Vunesp.Pagamento.Domain.csproj", "{D2463533-A2AD-4C6C-95AA-E24E40B3814B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vunesp.Pagamento.Api", "Vunesp.Pagamento.Api\Vunesp.Pagamento.Api.csproj", "{CE64DB8B-99DF-4349-9ABA-7FD03CE5D172}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Dto", "04 - Dto", "{E22676E8-D825-4B35-851A-DFBD34286C59}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Application", "02 - Application", "{E22676E8-D825-4B35-851A-DFBD34286C59}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vunesp.Pagamento.Dto", "Vunesp.Pagamento.Dto\Vunesp.Pagamento.Dto.csproj", "{A9F7A316-79C6-4549-B833-243D12F549F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vunesp.Pagamento.Application", "Vunesp.Pagamento.Dto\Vunesp.Pagamento.Application.csproj", "{A9F7A316-79C6-4549-B833-243D12F549F8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - Arquitetura", "00 - Arquitetura", "{51344B54-5A89-4F90-854B-D96CEE6DAE8D}"
 	ProjectSection(SolutionItems) = preProject
 		CamadasArquitetura.dgml = CamadasArquitetura.dgml
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Infrastructure", "04 - Infrastructure", "{DB0DAC07-6F80-43CA-A777-A2000C5CE263}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - IoC", "02 - IoC", "{CCBBF826-A134-46A0-AC4A-12A3CA5CDB3D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vunesp.Pagamento.IoC", "Vunesp.Pagamento.IoC\Vunesp.Pagamento.IoC.csproj", "{B45B02A8-E62F-46EC-9B4B-1B3D3CAB1C5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,10 +36,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9F255635-BF1E-4D1E-9613-E707E2E1A4AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9F255635-BF1E-4D1E-9613-E707E2E1A4AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9F255635-BF1E-4D1E-9613-E707E2E1A4AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9F255635-BF1E-4D1E-9613-E707E2E1A4AE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{57232A6C-A1B3-4C35-A005-197401562C7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{57232A6C-A1B3-4C35-A005-197401562C7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57232A6C-A1B3-4C35-A005-197401562C7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -54,16 +52,22 @@ Global
 		{A9F7A316-79C6-4549-B833-243D12F549F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9F7A316-79C6-4549-B833-243D12F549F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9F7A316-79C6-4549-B833-243D12F549F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B45B02A8-E62F-46EC-9B4B-1B3D3CAB1C5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B45B02A8-E62F-46EC-9B4B-1B3D3CAB1C5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B45B02A8-E62F-46EC-9B4B-1B3D3CAB1C5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B45B02A8-E62F-46EC-9B4B-1B3D3CAB1C5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9F255635-BF1E-4D1E-9613-E707E2E1A4AE} = {59F3AEA2-3B60-4134-AD3C-B875AF57B7D4}
+		{A81E5877-60AD-45AD-8960-D0405B8997DD} = {DB0DAC07-6F80-43CA-A777-A2000C5CE263}
 		{57232A6C-A1B3-4C35-A005-197401562C7A} = {A81E5877-60AD-45AD-8960-D0405B8997DD}
 		{D2463533-A2AD-4C6C-95AA-E24E40B3814B} = {91DEB192-CCFA-4D0E-BC03-BDC5886F9AB5}
 		{CE64DB8B-99DF-4349-9ABA-7FD03CE5D172} = {79479965-B238-499D-B179-43D4A5830841}
 		{A9F7A316-79C6-4549-B833-243D12F549F8} = {E22676E8-D825-4B35-851A-DFBD34286C59}
+		{CCBBF826-A134-46A0-AC4A-12A3CA5CDB3D} = {DB0DAC07-6F80-43CA-A777-A2000C5CE263}
+		{B45B02A8-E62F-46EC-9B4B-1B3D3CAB1C5F} = {CCBBF826-A134-46A0-AC4A-12A3CA5CDB3D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8DF8B61E-6944-43E5-B742-D36DFDC058EA}

@@ -1,21 +1,11 @@
-﻿using Swashbuckle.AspNetCore.Swagger;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Newtonsoft.Json.Serialization;
-using Vunesp.Pagamento.Domain;
-using Vunesp.Pagamento.Dto;
-using Vunesp.Pagamento.Model;
+using Swashbuckle.AspNetCore.Swagger;
+using Vunesp.Pagamento.IoC;
 
 namespace Vunesp.Pagamento.Api
 {
@@ -31,18 +21,35 @@ namespace Vunesp.Pagamento.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                .AddJsonOptions(options =>
-                {
-                    options.SerializerSettings.ContractResolver = new DefaultContractResolver();
-                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
-                });
+            services.AddMvcCore()
+                     .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                     .AddJsonFormatters()
+                     .ConfigureApiBehaviorOptions(options =>
+                     {
+                         options.SuppressConsumesConstraintForFormFileParameters = true;
+                         options.SuppressInferBindingSourcesForParameters = true;
+                         options.SuppressModelStateInvalidFilter = true;
+                         options.SuppressMapClientErrors = true;
+                     });
 
-            // Configura os serviços (injeção de dependência)
-            services.AddScoped<ICandidatoProjetoPagamentoDomain, CandidatoProjetoPagamentoDomain>();
+            services.AddMvc()
+                     .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                     .ConfigureApiBehaviorOptions(options =>
+                     {
+                         options.SuppressConsumesConstraintForFormFileParameters = true;
+                         options.SuppressInferBindingSourcesForParameters = true;
+                         options.SuppressModelStateInvalidFilter = true;
+                         options.SuppressMapClientErrors = true;
+                     });
+
+            services.AddMvcCore().AddApiExplorer();
+            services.AddAutoMapper();
+
 
             // Adiciona o Swagger
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Info { Title = "Vunesp API Pagamento", Version = "v1" }));
+
+            RegisterServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,13 +65,6 @@ namespace Vunesp.Pagamento.Api
                 app.UseHsts();
             }
 
-            // Configurado o AutoMapper (mapeamento automático de Model para Dto e vice-versa)
-            Mapper.Initialize(c => 
-            {
-                c.CreateMap<CandidatoProjetoPagamentoDto, CandidatoProjetoPagamentoModel>(MemberList.Source);
-                c.CreateMap<CandidatoProjetoPagamentoModel, CandidatoProjetoPagamentoDto>(MemberList.Destination);                
-            });
-
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
@@ -73,6 +73,11 @@ namespace Vunesp.Pagamento.Api
 
             app.UseHttpsRedirection();
             app.UseMvc();
+        }
+
+        private static void RegisterServices(IServiceCollection services)
+        {
+            RegisterInjectionPagamento.RegisterServices(services);
         }
     }
 }

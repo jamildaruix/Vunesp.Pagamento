@@ -1,67 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Vunesp.Pagamento.Domain;
-using Vunesp.Pagamento.Dto;
-using Vunesp.Pagamento.Model;
+using Vunesp.Pagamento.Application.Interfaces;
+using Vunesp.Pagamento.Application.ViewModels;
 using static AutoMapper.Mapper;
 
 namespace Vunesp.Pagamento.Api.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class CandidatoProjetoPagamentoController : ControllerBase
+    public class PagamentoController : ControllerBase
     {
-        private readonly ICandidatoProjetoPagamentoDomain _service;
+        private readonly IPagamentoAppService _pagamentoAppService;
 
-        public CandidatoProjetoPagamentoController(ICandidatoProjetoPagamentoDomain service)
+        public PagamentoController(IPagamentoAppService pagamentoAppService)
         {
-            _service = service;
+            _pagamentoAppService = pagamentoAppService;
         }
 
-        // Listar
-        [HttpGet]
-        public ActionResult Get()
-        {
-            try
-            {
-                // Chama o domínio e retorna a lista de model convertido para lista de dto
-                return Ok(Map<List<CandidatoProjetoPagamentoDto>>(_service.Listar()));
-            }
-            catch (Exception ex)
-            {
-                return Ok(new { ex.Message });
-            }
-        }
-
-        // Buscar
-        [HttpGet("{id}")]
-        public ActionResult Get(int id)
-        {
-            try
-            {
-                // Chama o domínio e retorna o model convertio para dto
-                return Ok(Map<CandidatoProjetoPagamentoDto>(_service.Buscar(id)));
-            }
-            catch (Exception ex)
-            {
-                return Ok(new { ex.Message });
-            }
-        }
-
-        // Inserir
         [HttpPost]
-        public ActionResult Post([FromBody] CandidatoProjetoPagamentoDto dto)
+        public async Task<ActionResult> Post([FromBody] CandidatoProjetoPagamentoViewModel model)
         {
-            try
-            {
-                // Chama o domínio passando o dto convertido para model
-                return Ok(_service.Inserir(Map<CandidatoProjetoPagamentoModel>(dto)));
-            }
-            catch (Exception ex)
-            {
-                return Ok(new { ex.Message });
-            }
+            var returns = await _pagamentoAppService.Credito(model);
+            return Ok(returns);
         }
     }
 }
