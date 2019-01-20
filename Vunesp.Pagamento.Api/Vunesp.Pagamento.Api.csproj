@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Vunesp.Pagamento.Application\Vunesp.Pagamento.Application.csproj" />
     <ProjectReference Include="..\Vunesp.Pagamento.Domain\Vunesp.Pagamento.Domain.csproj" />
-    <ProjectReference Include="..\Vunesp.Pagamento.Dto\Vunesp.Pagamento.Application.csproj" />
     <ProjectReference Include="..\Vunesp.Pagamento.IoC\Vunesp.Pagamento.IoC.csproj" />
   </ItemGroup>
 

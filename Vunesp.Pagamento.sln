@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vunesp.Pagamento.Api", "Vun
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Application", "02 - Application", "{E22676E8-D825-4B35-851A-DFBD34286C59}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vunesp.Pagamento.Application", "Vunesp.Pagamento.Dto\Vunesp.Pagamento.Application.csproj", "{A9F7A316-79C6-4549-B833-243D12F549F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vunesp.Pagamento.Application", "Vunesp.Pagamento.Application\Vunesp.Pagamento.Application.csproj", "{A9F7A316-79C6-4549-B833-243D12F549F8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - Arquitetura", "00 - Arquitetura", "{51344B54-5A89-4F90-854B-D96CEE6DAE8D}"
 	ProjectSection(SolutionItems) = preProject
