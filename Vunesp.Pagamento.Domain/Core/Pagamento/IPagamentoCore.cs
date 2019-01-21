@@ -8,6 +8,6 @@ namespace Vunesp.Pagamento.Domain.Core.Pagamento
 {
     public interface IPagamentoCore : IDisposable
     {
-        Task<bool> CartaoCredito(CandidatoProjetoPagamento model);
+        Task<CandidatoProjetoPagamento> CartaoCredito(CandidatoProjetoPagamento model);
     }
 }

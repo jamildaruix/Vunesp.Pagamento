@@ -19,11 +19,14 @@ namespace Vunesp.Pagamento.Application.Services
             _pagamentoCore = pagamentoCore;
         }
 
-        public async Task<bool> Credito(CandidatoProjetoPagamentoViewModel model)
+        public async Task<CandidatoProjetoPagamentoViewModel> Credito(CandidatoProjetoPagamentoViewModel model)
         {
             var pagamento = _mapper.Map<CandidatoProjetoPagamento>(model);
             var returns = await _pagamentoCore.CartaoCredito(pagamento);
-            return  true;
+
+            var pagamentoViewModel = _mapper.Map<CandidatoProjetoPagamentoViewModel>(returns);
+
+            return pagamentoViewModel;
         }
 
         public void Dispose()

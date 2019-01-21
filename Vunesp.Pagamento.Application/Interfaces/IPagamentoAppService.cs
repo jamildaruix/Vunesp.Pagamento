@@ -8,6 +8,6 @@ namespace Vunesp.Pagamento.Application.Interfaces
 {
     public interface IPagamentoAppService : IDisposable
     {
-        Task<bool> Credito(CandidatoProjetoPagamentoViewModel model);
+        Task<CandidatoProjetoPagamentoViewModel> Credito(CandidatoProjetoPagamentoViewModel model);
     }
 }

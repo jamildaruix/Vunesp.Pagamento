@@ -24,10 +24,10 @@ namespace Vunesp.Pagamento.Domain.Core
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public async Task<bool> CartaoCredito(CandidatoProjetoPagamento model)
+        public async Task<CandidatoProjetoPagamento> CartaoCredito(CandidatoProjetoPagamento model)
         {
             var returns = await _pagamentoRepository.Inserir(model);
-            return true;
+            return new CandidatoProjetoPagamento(1, 2, 12, "Gravou");
         }
 
         public void Dispose()
