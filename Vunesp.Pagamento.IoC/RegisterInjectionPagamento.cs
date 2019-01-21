@@ -6,6 +6,8 @@ using Vunesp.Pagamento.Application.Interfaces;
 using Vunesp.Pagamento.Application.Services;
 using Vunesp.Pagamento.Data.Context;
 using Vunesp.Pagamento.Data.Repository;
+using Vunesp.Pagamento.Domain.Core;
+using Vunesp.Pagamento.Domain.Core.Pagamento;
 using Vunesp.Pagamento.Domain.Interfaces;
 
 namespace Vunesp.Pagamento.IoC
@@ -26,10 +28,13 @@ namespace Vunesp.Pagamento.IoC
 
             #endregion
 
+            #region Domain
+            services.AddScoped<IPagamentoCore, PagamentoCore>();
+            #endregion
+
             #region Infra - Data
             //Contexts
             services.AddScoped<ContextEF>();
-
             services.AddScoped<IPagamentoRepository, PagamentoCandidatoRepository>();
             #endregion            
         }

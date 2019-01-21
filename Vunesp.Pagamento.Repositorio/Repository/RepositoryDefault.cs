@@ -21,7 +21,7 @@ namespace Vunesp.Pagamento.Data.Repository
 
         public async Task<T> Inserir(T obj)
         {
-            await _context.Set<T>().AddAsync(obj);
+            //await _context.Set<T>().AddAsync(obj);
             return obj;
         }
 
